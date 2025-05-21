@@ -14,7 +14,7 @@ function App() {
     const secondValue = e.target.second.value;
 
     try {
-      const res = await fetch('http://localhost:5000/submit', {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstValue, secondValue })
