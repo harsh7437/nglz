@@ -6,8 +6,12 @@ import mongoose from 'mongoose';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://nglz-1.onrender.com/' // 👈 Replace with your actual frontend Render URL
+}));
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
